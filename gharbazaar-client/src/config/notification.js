@@ -2,6 +2,12 @@ import { getToken, onMessage } from "firebase/messaging";
 import { messaging } from "./firebase";
 
 export const requestNotificationPermission = async () => {
+  // Skip if Firebase is not configured
+  if (!messaging) {
+    console.log("Firebase messaging not configured - notifications disabled");
+    return null;
+  }
+
   try {
     const permission = await Notification.requestPermission();
 

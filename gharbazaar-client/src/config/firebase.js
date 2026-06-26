@@ -11,6 +11,25 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+// Check if Firebase is configured
+const isFirebaseConfigured = firebaseConfig.projectId && 
+  firebaseConfig.apiKey && 
+  firebaseConfig.appId;
 
-export const messaging = getMessaging(app);
+let app = null;
+let messaging = null;
+
+// Only initialize Firebase if properly configured
+if (isFirebaseConfigured) {
+  try {
+    app = initializeApp(firebaseConfig);
+    messaging = getMessaging(app);
+    console.log("Firebase initialized successfully");
+  } catch (error) {
+    console.warn("Firebase initialization failed:", error.message);
+  }
+} else {
+  console.warn("Firebase not configured - push notifications will be disabled");
+}
+
+export { messaging, app };
