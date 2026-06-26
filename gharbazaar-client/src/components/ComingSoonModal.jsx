@@ -19,46 +19,40 @@ function ComingSoonModal({ onClose }) {
     <div className={`modal-overlay ${isVisible ? 'visible' : ''}`} onClick={handleClose}>
       <div className={`coming-soon-modal ${isVisible ? 'visible' : ''}`} onClick={(e) => e.stopPropagation()}>
         <button className="modal-close-btn" onClick={handleClose}>
-          <X size={24} />
+          <X size={20} />
         </button>
 
-        {/* Animated Background Elements */}
-        <div className="modal-decoration">
-          <div className="decoration-circle circle-1"></div>
-          <div className="decoration-circle circle-2"></div>
-          <div className="decoration-circle circle-3"></div>
-        </div>
-
-        {/* Main Icon with Animation */}
-        <div className="modal-icon-wrapper">
-          <div className="modal-icon">
-            <Rocket size={70} />
+        <div className="modal-content">
+          {/* Main Icon */}
+          <div className="modal-icon-wrapper">
+            <div className="modal-icon">
+              <Rocket size={50} />
+            </div>
           </div>
-          <div className="icon-glow"></div>
-        </div>
 
-        {/* Title Section */}
-        <div className="modal-header">
-          <h2 className="modal-title">
-            <span className="title-text">Coming Soon!</span>
-            <span className="title-sparkle">✨</span>
-          </h2>
-          
-          <p className="modal-subtitle">
-            We're crafting something <span className="highlight">extraordinary</span> for you
-          </p>
-        </div>
+          {/* Title Section */}
+          <div className="modal-header">
+            <h2 className="modal-title">
+              <span className="title-text">Coming Soon!</span>
+              <span className="title-sparkle">✨</span>
+            </h2>
+            
+            <p className="modal-subtitle">
+              We're crafting something <span className="highlight">extraordinary</span> for you
+            </p>
+          </div>
 
-        {/* Thank You Message */}
-        <div className="modal-message">
-          <h3>Thank You for Visiting Us! 🎉</h3>
-          <p>Your interest means the world to us. This section is under active development and will be available very soon with amazing features that will transform your experience.</p>
-        </div>
+          {/* Thank You Message */}
+          <div className="modal-message">
+            <h3>Thank You for Visiting Us! 🎉</h3>
+            <p>Your interest means the world to us. This section is under active development and will be available very soon with amazing features that will transform your experience.</p>
+          </div>
 
-        {/* Action Button */}
-        <button className="modal-action-btn primary" onClick={handleClose}>
-          <span>Continue Exploring</span>
-        </button>
+          {/* Action Button */}
+          <button className="modal-action-btn primary" onClick={handleClose}>
+            <span>Continue Exploring</span>
+          </button>
+        </div>
       </div>
     </div>
   );
