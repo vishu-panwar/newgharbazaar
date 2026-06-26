@@ -98,6 +98,14 @@ const CSS = `
     padding-top: 0;
     width: 100%;
   }
+  
+  /* Hide trust bar on mobile screens */
+  @media (max-width: 768px) {
+    .gbp-trust-bar {
+      display: none;
+    }
+  }
+  
   .gbp-trust-pill {
     display: inline-flex;
     align-items: center;
