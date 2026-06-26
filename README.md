@@ -1,6 +1,11 @@
 # GharBazaar — Premium Real Estate Platform
 
-MERN stack real estate platform with a premium glassmorphism header.
+MERN stack real estate platform with mobile-responsive design and premium UI.
+
+## ✨ Latest Updates
+- 📱 Mobile-optimized property details page
+- 🎨 Horizontal sliders for mobile (Home, PG/Hostel, Categories sections)
+- 🏠 Student accommodation plans integration
 
 ## Project Structure
 
