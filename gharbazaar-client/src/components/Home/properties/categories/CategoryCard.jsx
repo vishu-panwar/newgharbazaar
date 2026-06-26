@@ -32,13 +32,18 @@ const CategoryCard = ({ title, subTitle, items }) => {
             className="group cursor-pointer"
           >
             {/* Image */}
-            <div className="aspect-[4/3] overflow-hidden bg-gray-100 mb-2">
+            <div className="aspect-[4/3] overflow-hidden bg-gray-100 mb-2 relative">
               <img
                 src={item.imageUrl}
                 alt={item.label}
                 draggable="false"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
+              
+              {/* Verified Badge */}
+              <span className="absolute top-2 left-2 font-semibold text-[10px] tracking-wide px-1.5 py-0.5 bg-blue-50/90 text-blue-700 border border-blue-200 backdrop-blur-sm shadow-sm">
+                Verified
+              </span>
             </div>
 
             {/* Label */}

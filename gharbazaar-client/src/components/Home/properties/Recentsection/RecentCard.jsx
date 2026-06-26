@@ -81,6 +81,7 @@ const RecentCard = ({ property }) => {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
+        {/* Status Badge (Available/Booked) */}
         <span
           className={`absolute top-2.5 left-2.5 font-semibold text-[11px] tracking-wide px-2 py-0.5 border backdrop-blur-sm shadow-sm ${
             isAvailable
@@ -89,6 +90,11 @@ const RecentCard = ({ property }) => {
           }`}
         >
           {isAvailable ? "Available" : statusText}
+        </span>
+
+        {/* Verified Badge */}
+        <span className="absolute top-2.5 left-[85px] font-semibold text-[11px] tracking-wide px-2 py-0.5 bg-blue-50/90 text-blue-700 border border-blue-200 backdrop-blur-sm shadow-sm">
+          Verified
         </span>
 
         <button

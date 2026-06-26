@@ -287,6 +287,11 @@ function FavoriteCard({ item, onRemove, onWhatsApp }) {
           {isAvailable ? "Available" : statusText}
         </span>
 
+        {/* Verified Badge */}
+        <span className="absolute top-2.5 left-[85px] font-semibold text-[11px] tracking-wide px-2 py-0.5 bg-blue-50/90 text-blue-700 border border-blue-200 backdrop-blur-sm shadow-sm rounded-md">
+          Verified
+        </span>
+
         {/* Remove button — top right, same position/size as RecentCard heart */}
         <button
           onClick={handleRemove}
