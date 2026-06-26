@@ -374,33 +374,37 @@ const CSS = `
   .gbp-addon-header {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
     margin-bottom: 20px;
+    padding: 10px 14px;
+    background: #F5F0E8;
+    border-left: none;
   }
   .gbp-addon-icon-box {
-    width: 42px;
-    height: 42px;
-    border-radius: 0px;
-    background: #E6F5EC;
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #0D6B3F;
     flex-shrink: 0;
   }
   .gbp-addon-header-title {
-    font-size: 18px;
+    font-size: 11px;
     font-weight: 800;
     text-transform: uppercase;
     color: #1F2937;
-    margin: 0 0 2px;
+    margin: 0;
     font-family: 'Poppins', sans-serif;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
+    display: inline;
   }
   .gbp-addon-header-sub {
     font-size: 13px;
     color: #6B7280;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    display: inline;
   }
   .gbp-addon-grid {
     display: grid;
@@ -1206,7 +1210,9 @@ const AddOnServices = () => (
       </div>
       <div>
         <h2 className="gbp-addon-header-title">Optional Add-On Services</h2>
-        <p className="gbp-addon-header-sub">Available with Assisted Accommodation Plan (separate charges apply)</p>
+        <span className="gbp-addon-header-sub">
+          Available with Assisted Accommodation Plan (separate charges apply)
+        </span>
       </div>
     </div>
     <div className="gbp-addon-grid">
