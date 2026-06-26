@@ -218,18 +218,30 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* MOBILE DRAWER */}
+        {/* MOBILE DRAWER - Dark Green Sidebar */}
         <div
-          className={`lg:hidden fixed inset-0 top-[58px] bg-white z-40 transition-transform duration-300 ${
+          className={`lg:hidden fixed inset-0 top-0 bg-[#0d5230] z-50 transition-transform duration-300 ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <nav className="flex flex-col p-6 gap-5">
+          {/* Header */}
+          <div className="flex items-center justify-between px-6 h-[68px] border-b border-white/20">
+            <span className="text-2xl font-bold text-white">
+              GharBazaar
+            </span>
+            <button
+              onClick={() => setMobileOpen(false)}
+              className="text-white"
+            >
+              <Menu size={28} />
+            </button>
+          </div>
 
-            {/* User Info */}
+          <nav className="flex flex-col py-4">
+            {/* User Profile Section - Only show if logged in */}
             {user && (
-              <div className="flex items-center gap-3 border-b pb-5">
-                <div className="w-12 h-12 rounded-full overflow-hidden bg-green-700">
+              <div className="flex items-center gap-4 px-6 py-5 border-b border-white/20 mb-2">
+                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white/30 shrink-0">
                   {avatar ? (
                     <img
                       src={avatar}
@@ -237,60 +249,105 @@ export default function Navbar() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full text-white flex items-center justify-center">
+                    <div className="w-full h-full bg-white/20 text-white flex items-center justify-center font-bold text-xl">
                       {username?.charAt(0)?.toUpperCase()}
                     </div>
                   )}
                 </div>
 
-                <div>
-                  <p className="font-semibold">{username}</p>
-                  <p className="text-sm text-gray-500">
-                    {user?.email}
+                <div className="flex-1 min-w-0">
+                  <p className="text-white font-semibold text-lg truncate">
+                    {username}
                   </p>
+                  {user?.email && (
+                    <p className="text-white/70 text-sm truncate">
+                      {user.email}
+                    </p>
+                  )}
                 </div>
               </div>
             )}
 
-            {/* Mobile Nav Links */}
-            {NAV_LINKS.map(({ label, path }) => (
-              <Link
-                key={label}
-                to={path}
-                onClick={() => setMobileOpen(false)}
-                className="text-lg font-medium border-b pb-3"
-              >
-                {label}
-              </Link>
-            ))}
-
-            {/* User Actions */}
+            {/* User Actions - Only show if logged in */}
             {user ? (
               <>
                 <Link
                   to={getDashboardPath()}
                   onClick={() => setMobileOpen(false)}
-                  className="font-semibold"
+                  className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
                 >
                   Dashboard
                 </Link>
 
+                <Link
+                  to="/favorites"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
+                >
+                  Favorites
+                </Link>
+
+                <Link
+                  to="/payments"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
+                >
+                  Payments
+                </Link>
+
+                <Link
+                  to="/proposals"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
+                >
+                  My Proposal
+                </Link>
+
+                <Link
+                  to="/profile"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
+                >
+                  Profile
+                </Link>
+
+                <Link
+                  to="/settings"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
+                >
+                  Settings
+                </Link>
+
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-2 text-red-600 font-semibold mt-3"
+                  className="flex items-center gap-2 text-red-400 text-lg font-normal px-6 py-4 hover:bg-white/5 transition text-left"
                 >
-                  <LogOut size={20} />
-                  Logout
+                  Logout →
                 </button>
               </>
             ) : (
-              <Link
-                to="/login"
-                onClick={() => setMobileOpen(false)}
-                className="bg-green-800 text-white text-center py-3 rounded-lg font-medium"
-              >
-                Login / Register
-              </Link>
+              <>
+                {/* Show navigation links when not logged in */}
+                {NAV_LINKS.map(({ label, path }) => (
+                  <Link
+                    key={label}
+                    to={path}
+                    onClick={() => setMobileOpen(false)}
+                    className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
+                  >
+                    {label}
+                  </Link>
+                ))}
+
+                <Link
+                  to="/login"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-white text-lg font-normal px-6 py-4 hover:bg-white/5 transition"
+                >
+                  Login / Register
+                </Link>
+              </>
             )}
           </nav>
         </div>
