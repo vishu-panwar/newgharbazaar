@@ -1,11 +1,22 @@
 {
-  "buildCommand": "cd gharbazaar-client && npm run build",
-  "outputDirectory": "gharbazaar-client/dist",
-  "installCommand": "cd gharbazaar-client && npm install",
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "gharbazaar-client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
