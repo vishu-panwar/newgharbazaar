@@ -141,19 +141,21 @@ const CSS = `
     color: #0D6B3F;
   }
   .gbp-sp-section-title {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 800;
-    color: #1F2937;
+    color: #0C3A1D;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    display: inline;
   }
   .gbp-sp-section-subtitle {
-    font-size: 11px;
+    font-size: 13px;
     color: #6B7280;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    display: inline;
   }
 
   .gbp-sp-tab-bar {
@@ -374,37 +376,33 @@ const CSS = `
   .gbp-addon-header {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 14px;
     margin-bottom: 20px;
-    padding: 10px 14px;
-    background: #F5F0E8;
-    border-left: none;
   }
   .gbp-addon-icon-box {
-    width: 20px;
-    height: 20px;
+    width: 42px;
+    height: 42px;
+    border-radius: 0px;
+    background: #E6F5EC;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0D6B3F;
     flex-shrink: 0;
   }
   .gbp-addon-header-title {
-    font-size: 11px;
+    font-size: 18px;
     font-weight: 800;
     text-transform: uppercase;
     color: #1F2937;
-    margin: 0;
+    margin: 0 0 2px;
     font-family: 'Poppins', sans-serif;
-    letter-spacing: 0.08em;
-    display: inline;
+    letter-spacing: 0.04em;
   }
   .gbp-addon-header-sub {
     font-size: 13px;
     color: #6B7280;
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    display: inline;
   }
   .gbp-addon-grid {
     display: grid;
@@ -1210,9 +1208,7 @@ const AddOnServices = () => (
       </div>
       <div>
         <h2 className="gbp-addon-header-title">Optional Add-On Services</h2>
-        <span className="gbp-addon-header-sub">
-          Available with Assisted Accommodation Plan (separate charges apply)
-        </span>
+        <p className="gbp-addon-header-sub">Available with Assisted Accommodation Plan (separate charges apply)</p>
       </div>
     </div>
     <div className="gbp-addon-grid">
