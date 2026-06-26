@@ -6,10 +6,11 @@ import { HelmetProvider } from "react-helmet-async";
 import AppContent from "./AppContent";
 
 export default function App() {
+  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || "";
 
   return (
     <HelmetProvider>
-      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+      <GoogleOAuthProvider clientId={googleClientId}>
         <Provider store={store}>
           <CartProvider>
             <AppContent />
