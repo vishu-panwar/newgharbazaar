@@ -275,13 +275,13 @@ export default function ContactSection() {
         @media (hover: hover) { .inp:hover:not(:focus) { border-color: #d0d0c8; } }
         .lbl { font-size: 12px; font-weight: 600; color: #000; margin-bottom: 6px; display: block; letter-spacing: 0.01em; }
         .card-contact {
-          background: #fff; border: 2px solid #2e7d32; border-radius: 0px;
+          background: #fff; border: 1.5px solid #d1d5db; border-radius: 0px;
           padding: 20px 22px; display: flex; align-items: flex-start; gap: 16px;
           transition: box-shadow 0.18s, transform 0.18s;
         }
         @media (hover: hover) { .card-contact:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); transform: translateY(-2px); } }
         .card-wa {
-          background: #f0fdf4; border: 2px solid #2e7d32; border-radius: 0px;
+          background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 0px;
           padding: 16px 18px; display: flex; align-items: center; gap: 14px;
           transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
           cursor: pointer; text-decoration: none; width: 100%; font-family: inherit;
@@ -384,7 +384,7 @@ export default function ContactSection() {
           <div
             style={{
               background: "#fff",
-              border: "2px solid #2e7d32",
+              border: "1.5px solid #d1d5db",
               borderRadius: 0,
               padding: "clamp(16px, 2.5vw, 22px)",
             }}
@@ -765,7 +765,7 @@ export default function ContactSection() {
             <div
               style={{
                 background: "#fff",
-                border: "2px solid #2e7d32",
+                border: "1.5px solid #d1d5db",
                 borderRadius: 0,
                 padding: "clamp(14px, 1.8vw, 18px)",
               }}
@@ -807,7 +807,7 @@ export default function ContactSection() {
           <div
             style={{
               background: "#fff",
-              border: "2px solid #2e7d32",
+              border: "1.5px solid #d1d5db",
               borderRadius: 0,
               padding: "clamp(16px, 2.5vw, 22px)",
             }}
@@ -832,7 +832,7 @@ export default function ContactSection() {
           <div
             style={{
               background: "#fff",
-              border: "2px solid #2e7d32",
+              border: "1.5px solid #d1d5db",
               borderRadius: 0,
               overflow: "hidden",
               display: "flex",
