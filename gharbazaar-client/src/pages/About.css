@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.about-page {
+  font-family: 'Poppins', sans-serif;
+  background: #ede8df;
+  min-height: 100vh;
+}
+
+.about-section {
+  padding: 4rem 1.5rem;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Typography */
+.section-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #0C3A1D;
+}
+
+.green-text {
+  color: #1f9d55;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.75rem;
+}
+
+.section-description {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.section-paragraph {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* Story Section */
+.story-section {
+  background: #fff;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  align-items: start;
+}
+
+.story-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.story-content {
+  padding-top: 1rem;
+}
+
+.story-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.story-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* Mission Vision Grid */
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.mission-card {
+  background: #F5F0E8;
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid #1f9d55;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Features Section */
+.features-section {
+  background: #fff;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: #F5F0E8;
+  padding: 2rem 1.5rem;
+  border-radius: 8px;
+  border: 1.5px solid #ddd6c8;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  border-color: #1f9d55;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(31, 157, 85, 0.1);
+}
+
+.feature-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0C3A1D;
+  margin-bottom: 0.75rem;
+}
+
+.feature-description {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Values Section */
+.values-section {
+  background: #F5F0E8;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.value-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1.5px solid #e8e8e6;
+}
+
+.value-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.75rem;
+}
+
+.value-description {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Impact Section */
+.impact-section {
+  background: #fff;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #F5F0E8;
+  border-radius: 8px;
+  border: 1.5px solid #ddd6c8;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #0C3A1D;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.real-time-section {
+  background: #F5F0E8;
+  padding: 2.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #1f9d55;
+  margin-top: 2rem;
+}
+
+.real-time-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0C3A1D;
+  margin-bottom: 0.5rem;
+}
+
+.real-time-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.cities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.city-group {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.city-group strong {
+  color: #1f9d55;
+  font-weight: 600;
+}
+
+/* Certifications Section */
+.certifications-section {
+  background: #F5F0E8;
+}
+
+.certifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.cert-card {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 2rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1.5px solid #e8e8e6;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.cert-card:hover {
+  border-color: #1f9d55;
+  box-shadow: 0 4px 12px rgba(31, 157, 85, 0.1);
+}
+
+.cert-logo-placeholder {
+  width: 150px;
+  height: 100px;
+  background: #F5F0E8;
+  border: 2px solid #ddd6c8;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-icon {
+  color: #1f9d55;
+}
+
+.cert-content {
+  flex: 1;
+}
+
+.cert-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0C3A1D;
+  margin-bottom: 0.5rem;
+}
+
+.cert-description {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .cert-logo-placeholder {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 3rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-image img {
+    height: 300px;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-description,
+  .section-paragraph {
+    font-size: 0.9rem;
+  }
+
+  .about-section {
+    padding: 2rem 1rem;
+  }
+}
