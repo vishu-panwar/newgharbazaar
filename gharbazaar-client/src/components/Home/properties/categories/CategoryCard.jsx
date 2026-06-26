@@ -39,11 +39,6 @@ const CategoryCard = ({ title, subTitle, items }) => {
                 draggable="false"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              
-              {/* Verified Badge */}
-              <span className="absolute top-2 left-2 font-semibold text-[10px] tracking-wide px-1.5 py-0.5 bg-blue-50/90 text-blue-700 border border-blue-200 backdrop-blur-sm shadow-sm">
-                Verified
-              </span>
             </div>
 
             {/* Label */}
