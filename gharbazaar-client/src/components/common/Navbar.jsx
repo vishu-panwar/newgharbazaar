@@ -218,30 +218,42 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* MOBILE DRAWER - Dark Green Sidebar */}
+        {/* MOBILE DRAWER - White Sidebar */}
         <div
-          className={`lg:hidden fixed inset-0 top-0 bg-[#0d5230] z-50 transition-transform duration-300 ${
+          className={`lg:hidden fixed inset-0 top-0 bg-white z-50 transition-transform duration-300 ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-6 h-[68px] border-b border-white/20">
-            <span className="text-2xl font-bold text-white">
-              GharBazaar
-            </span>
-            <button
-              onClick={() => setMobileOpen(false)}
-              className="text-white"
-            >
-              <Menu size={28} />
-            </button>
+          <div className="flex items-center justify-between px-5 h-[68px] border-b border-gray-200">
+            <Link to="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
+              <img
+                src="/logo.jpeg"
+                alt="logo"
+                className="h-8 w-auto object-contain"
+              />
+              <span className="text-xl font-bold text-gray-800">
+                Ghar<span className="text-[#1f9d55]">Bazaar</span>
+                <span className="text-gray-600">.in</span>
+              </span>
+            </Link>
+
+            <div className="flex items-center gap-4">
+              <Heart size={24} className="text-gray-700" />
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="text-gray-700"
+              >
+                <X size={28} />
+              </button>
+            </div>
           </div>
 
-          <nav className="flex flex-col py-4">
+          <nav className="flex flex-col">
             {/* User Profile Section - Only show if logged in */}
             {user && (
-              <div className="flex items-center gap-4 px-6 py-5 border-b border-white/20 mb-2">
-                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white/30 shrink-0">
+              <div className="flex items-center gap-4 px-5 py-5 border-b border-gray-200">
+                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-gray-200 shrink-0">
                   {avatar ? (
                     <img
                       src={avatar}
@@ -249,18 +261,18 @@ export default function Navbar() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full bg-white/20 text-white flex items-center justify-center font-bold text-xl">
+                    <div className="w-full h-full bg-gray-300 text-gray-700 flex items-center justify-center font-bold text-xl">
                       {username?.charAt(0)?.toUpperCase()}
                     </div>
                   )}
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <p className="text-white font-semibold text-lg truncate">
+                  <p className="text-gray-900 font-semibold text-base truncate">
                     {username}
                   </p>
                   {user?.email && (
-                    <p className="text-white/70 text-sm truncate">
+                    <p className="text-gray-500 text-sm truncate">
                       {user.email}
                     </p>
                   )}
@@ -268,86 +280,82 @@ export default function Navbar() {
               </div>
             )}
 
+            {/* Navigation Links */}
+            <Link
+              to="/"
+              onClick={() => setMobileOpen(false)}
+              className="text-gray-900 text-base font-normal px-5 py-4 border-b border-gray-200 hover:bg-gray-50 transition"
+            >
+              Properties
+            </Link>
+
+            <Link
+              to="/services"
+              onClick={() => setMobileOpen(false)}
+              className="text-gray-900 text-base font-normal px-5 py-4 border-b border-gray-200 hover:bg-gray-50 transition"
+            >
+              Services
+            </Link>
+
+            <Link
+              to="/marketplace"
+              onClick={() => setMobileOpen(false)}
+              className="text-gray-900 text-base font-normal px-5 py-4 border-b border-gray-200 hover:bg-gray-50 transition"
+            >
+              Marketplace
+            </Link>
+
+            <Link
+              to="/pricing"
+              onClick={() => setMobileOpen(false)}
+              className="text-gray-900 text-base font-normal px-5 py-4 border-b border-gray-200 hover:bg-gray-50 transition"
+            >
+              Pricing
+            </Link>
+
+            <Link
+              to="/about"
+              onClick={() => setMobileOpen(false)}
+              className="text-gray-900 text-base font-normal px-5 py-4 border-b border-gray-200 hover:bg-gray-50 transition"
+            >
+              About
+            </Link>
+
+            <Link
+              to="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="text-gray-900 text-base font-normal px-5 py-4 border-b border-gray-200 hover:bg-gray-50 transition"
+            >
+              Contact
+            </Link>
+
             {/* User Actions - Only show if logged in */}
             {user ? (
               <>
                 <Link
                   to={getDashboardPath()}
                   onClick={() => setMobileOpen(false)}
-                  className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
+                  className="text-gray-900 text-base font-normal px-5 py-4 border-b border-gray-200 hover:bg-gray-50 transition"
                 >
                   Dashboard
                 </Link>
 
-                <Link
-                  to="/favorites"
-                  onClick={() => setMobileOpen(false)}
-                  className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
-                >
-                  Favorites
-                </Link>
-
-                <Link
-                  to="/payments"
-                  onClick={() => setMobileOpen(false)}
-                  className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
-                >
-                  Payments
-                </Link>
-
-                <Link
-                  to="/proposals"
-                  onClick={() => setMobileOpen(false)}
-                  className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
-                >
-                  My Proposal
-                </Link>
-
-                <Link
-                  to="/profile"
-                  onClick={() => setMobileOpen(false)}
-                  className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
-                >
-                  Profile
-                </Link>
-
-                <Link
-                  to="/settings"
-                  onClick={() => setMobileOpen(false)}
-                  className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
-                >
-                  Settings
-                </Link>
-
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-2 text-red-400 text-lg font-normal px-6 py-4 hover:bg-white/5 transition text-left"
+                  className="flex items-center gap-2 text-red-600 text-base font-normal px-5 py-4 hover:bg-gray-50 transition text-left"
                 >
-                  Logout →
+                  <LogOut size={20} />
+                  Logout
                 </button>
               </>
             ) : (
-              <>
-                {/* Show navigation links when not logged in */}
-                {NAV_LINKS.map(({ label, path }) => (
-                  <Link
-                    key={label}
-                    to={path}
-                    onClick={() => setMobileOpen(false)}
-                    className="text-white text-lg font-normal px-6 py-4 border-b border-white/10 hover:bg-white/5 transition"
-                  >
-                    {label}
-                  </Link>
-                ))}
-
-                <Link
-                  to="/login"
-                  onClick={() => setMobileOpen(false)}
-                  className="text-white text-lg font-normal px-6 py-4 hover:bg-white/5 transition"
-                >
-                  Login / Register
-                </Link>
-              </>
+              <Link
+                to="/login"
+                onClick={() => setMobileOpen(false)}
+                className="text-gray-900 text-base font-normal px-5 py-4 hover:bg-gray-50 transition"
+              >
+                Login / Register
+              </Link>
             )}
           </nav>
         </div>
