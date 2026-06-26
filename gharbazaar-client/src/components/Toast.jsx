@@ -1,0 +1,29 @@
+import { useEffect } from 'react';
+import { CheckCircle, XCircle, X } from 'lucide-react';
+import './Toast.css';
+
+export default function Toast({ message, type = 'success', onClose }) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onClose();
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return (
+    <div className={`toast toast--${type}`}>
+      <div className="toast__icon">
+        {type === 'success' ? (
+          <CheckCircle size={20} />
+        ) : (
+          <XCircle size={20} />
+        )}
+      </div>
+      <p className="toast__message">{message}</p>
+      <button className="toast__close" onClick={onClose}>
+        <X size={16} />
+      </button>
+    </div>
+  );
+}

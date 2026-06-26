@@ -1,0 +1,110 @@
+.luxury-homes-page {
+  padding: 90px 20px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #faf5ff 0%, #fff 100%);
+  min-height: 100vh;
+}
+
+.luxury-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  padding: 40px 20px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.luxury-header h1 {
+  font-size: 3rem;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.luxury-header p {
+  color: #e5e7eb;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.luxury-card {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, #FFD700, #FFA500) border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+}
+
+.luxury-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(255, 215, 0, 0.3);
+}
+
+.luxury-badge {
+  background: linear-gradient(135deg, #FFD700, #FFA500) !important;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+}
+
+.luxury-category {
+  color: #d97706 !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.luxury-amenities {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background: #fef3c7;
+  border-radius: 6px;
+  border-left: 3px solid #f59e0b;
+  line-height: 1.4;
+}
+
+.luxury-price {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.6rem !important;
+  font-weight: 800 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .luxury-homes-page {
+    padding: 80px 15px 40px;
+  }
+
+  .luxury-header h1 {
+    font-size: 2rem;
+  }
+
+  .luxury-header p {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,114 @@
+/* Import base styles */
+@import './AllProperties.css';
+
+/* PG Hostels specific styles */
+.pg-hostels-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fef3c7 0%, var(--gray-50) 100%);
+  padding: 90px 20px 40px;
+}
+
+.pg-hostels-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* PG Badge */
+.header-badge.pg-badge {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+/* PG Type Badges */
+.property-card__badge.badge-boys {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+
+.property-card__badge.badge-girls {
+  background: linear-gradient(135deg, #ec4899, #f472b6);
+}
+
+.property-card__badge.badge-coed {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+}
+
+/* PG Card Enhancements */
+.pg-card {
+  border-left: 4px solid transparent;
+  transition: var(--transition);
+}
+
+.pg-card:hover {
+  border-left-color: #f59e0b;
+}
+
+/* Occupancy Info */
+.pg-occupancy {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  background: var(--gray-100);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  width: fit-content;
+  margin: 4px 0;
+}
+
+.pg-occupancy svg {
+  flex-shrink: 0;
+  color: var(--gray-500);
+}
+
+/* Amenities Tags */
+.pg-amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.amenity-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.amenity-tag svg {
+  flex-shrink: 0;
+}
+
+/* Price Highlight for PG */
+.pg-card .property-card__price {
+  color: #f59e0b;
+  font-size: 1.1rem;
+}
+
+/* Filter Chips for PG Type */
+.pg-hostels-page .filter-chip {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pg-amenities {
+    gap: 4px;
+  }
+
+  .amenity-tag {
+    font-size: 0.65rem;
+    padding: 3px 6px;
+  }
+
+  .pg-occupancy {
+    font-size: 0.75rem;
+  }
+}

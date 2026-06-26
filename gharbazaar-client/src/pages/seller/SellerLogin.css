@@ -1,0 +1,60 @@
+/* src/pages/seller/SellerLogin.css */
+.login-container {
+  padding: 4rem 1rem;
+}
+
+.login-card {
+  max-width: 500px;
+}
+
+.login-categories {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.compact-card {
+  padding: 1rem 0.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-icon-small {
+  color: #0F9D58;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 0.5rem;
+}
+
+.compact-card h4 {
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.compact-card .radio-circle {
+  display: none; /* Hide radio circles on compact login cards */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-top: 0.5rem;
+}
+
+.forgot-password a {
+  color: #0F9D58;
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}

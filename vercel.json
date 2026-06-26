@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "buildCommand": "cd gharbazaar-client && npm install && npm run build",
+  "outputDirectory": "gharbazaar-client/dist",
+  "installCommand": "cd gharbazaar-client && npm install",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
