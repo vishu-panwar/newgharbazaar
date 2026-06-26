@@ -1,0 +1,9 @@
+{
+  "name": "gharbazaar-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd gharbazaar-client && npm install && npm run build",
+    "dev": "cd gharbazaar-client && npm run dev"
+  }
+}
