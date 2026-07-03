@@ -549,38 +549,40 @@ ${propertyLink}
                 </button>
               </div>
 
-              {/* SPECIFICATIONS GRID */}
-              <div className="grid grid-cols-4 gap-4 py-6 px-4 bg-[#d4cfc0] border-y border-gray-300 mb-8">
-                <div className="text-center">
-                  <p className="text-xs text-gray-600 uppercase mb-2 font-semibold">Bedroom</p>
-                  <p className="text-lg font-bold text-[#1B9E4B] flex items-center justify-center gap-1">
-                    <Bed size={18} className="text-[#1B9E4B]" />
-                    {property?.propertySpecifications?.bedroom || "01"}
-                  </p>
-                </div>
-                <div className="text-center">
-                  <p className="text-xs text-gray-600 uppercase mb-2 font-semibold">Bathroom</p>
-                  <p className="text-lg font-bold text-[#1B9E4B] flex items-center justify-center gap-1">
-                    <Bath size={18} className="text-[#1B9E4B]" />
-                    {property?.propertySpecifications?.bathroom || "01"}
-                  </p>
-                </div>
-                <div className="text-center">
-                  <p className="text-xs text-gray-600 uppercase mb-2 font-semibold">Area</p>
-                  <p className="text-lg font-bold text-gray-900">
-                    {property?.propertySpecifications?.area || "1000 sq.ft"}
-                  </p>
-                </div>
-                <div className="text-center">
-                  <p className="text-xs text-gray-600 uppercase mb-2 font-semibold">Status</p>
-                  <p className="text-lg font-bold text-[#1B9E4B] uppercase">
-                    {property?.status || "Available"}
-                  </p>
+              {/* SPECIFICATIONS GRID - White Card */}
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                <div className="grid grid-cols-4 gap-4">
+                  <div className="text-center">
+                    <p className="text-xs text-gray-600 uppercase mb-2 font-semibold">Bedroom</p>
+                    <p className="text-lg font-bold text-[#1B9E4B] flex items-center justify-center gap-1">
+                      <Bed size={18} className="text-[#1B9E4B]" />
+                      {property?.propertySpecifications?.bedroom || "01"}
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xs text-gray-600 uppercase mb-2 font-semibold">Bathroom</p>
+                    <p className="text-lg font-bold text-[#1B9E4B] flex items-center justify-center gap-1">
+                      <Bath size={18} className="text-[#1B9E4B]" />
+                      {property?.propertySpecifications?.bathroom || "01"}
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xs text-gray-600 uppercase mb-2 font-semibold">Area</p>
+                    <p className="text-lg font-bold text-gray-900">
+                      {property?.propertySpecifications?.area || "1000 sq.ft"}
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-xs text-gray-600 uppercase mb-2 font-semibold">Status</p>
+                    <p className="text-lg font-bold text-[#1B9E4B] uppercase">
+                      {property?.status || "Available"}
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              {/* DESCRIPTION */}
-              <div className="mb-8">
+              {/* DESCRIPTION - White Card */}
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Description
                 </h3>
@@ -590,8 +592,8 @@ ${propertyLink}
                 </p>
               </div>
 
-              {/* PROPERTY FEATURES */}
-              <div className="mb-8">
+              {/* PROPERTY FEATURES - White Card */}
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Property Features
                 </h3>
@@ -625,8 +627,8 @@ ${propertyLink}
                 </div>
               </div>
 
-              {/* NEARBY AMENITIES */}
-              <div>
+              {/* NEARBY AMENITIES - White Card */}
+              <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Nearby Amenities
                 </h3>
