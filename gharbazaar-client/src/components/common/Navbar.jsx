@@ -338,7 +338,7 @@ export default function Navbar() {
             <Link
               to="/"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-semibold px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <Home size={20} strokeWidth={2} />
               Properties
@@ -347,7 +347,7 @@ export default function Navbar() {
             <Link
               to="/services"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-semibold px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <Briefcase size={20} strokeWidth={2} />
               Services
@@ -356,7 +356,7 @@ export default function Navbar() {
             <Link
               to="/products-marketplace"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-semibold px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <ShoppingBag size={20} strokeWidth={2} />
               Marketplace
@@ -365,7 +365,7 @@ export default function Navbar() {
             <Link
               to="/pricing"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-semibold px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <DollarSign size={20} strokeWidth={2} />
               Pricing
@@ -384,7 +384,7 @@ export default function Navbar() {
             <Link
               to="/about"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-semibold px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <Info size={20} strokeWidth={2} />
               About
@@ -393,7 +393,7 @@ export default function Navbar() {
             <Link
               to="/contact"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-semibold px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <Phone size={20} strokeWidth={2} />
               Contact
@@ -405,7 +405,7 @@ export default function Navbar() {
                 <Link
                   to={getDashboardPath()}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
+                  className="flex items-center gap-3 text-gray-800 text-base font-semibold px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
                 >
                   <LayoutDashboard size={20} strokeWidth={2} />
                   Dashboard
@@ -413,7 +413,7 @@ export default function Navbar() {
 
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-3 text-red-600 text-base font-normal px-5 py-4 hover:bg-[#e5e1d8] transition text-left"
+                  className="flex items-center gap-3 text-red-600 text-base font-semibold px-5 py-4 hover:bg-[#e5e1d8] transition text-left"
                 >
                   <LogOut size={20} />
                   Logout
@@ -423,7 +423,7 @@ export default function Navbar() {
               <Link
                 to="/login"
                 onClick={() => setMobileOpen(false)}
-                className="text-gray-800 text-base font-normal px-5 py-4 hover:bg-[#e5e1d8] transition"
+                className="text-gray-800 text-base font-semibold px-5 py-4 hover:bg-[#e5e1d8] transition"
               >
                 Login / Register
               </Link>
