@@ -272,31 +272,31 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* MOBILE DRAWER - Dark Theme */}
+        {/* MOBILE DRAWER - Light Beige Theme */}
         <div
-          className={`lg:hidden fixed inset-0 top-0 bg-gradient-to-b from-gray-900 to-gray-800 z-50 transition-transform duration-300 ${
+          className={`lg:hidden fixed inset-0 top-0 bg-[#f0ede8] z-50 transition-transform duration-300 ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-5 h-[68px] border-b border-gray-700">
+          <div className="flex items-center justify-between px-5 h-[68px] border-b border-gray-300">
             <Link to="/" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
               <img
                 src="/logo.jpeg"
                 alt="logo"
                 className="h-8 w-auto object-contain"
               />
-              <span className="text-xl font-bold text-white">
+              <span className="text-xl font-bold text-gray-800">
                 Ghar<span className="text-[#1f9d55]">Bazaar</span>
-                <span className="text-gray-300">.in</span>
+                <span className="text-gray-600">.in</span>
               </span>
             </Link>
 
             <div className="flex items-center gap-4">
-              <Heart size={24} className="text-white" />
+              <Heart size={24} className="text-gray-700" />
               <button
                 onClick={() => setMobileOpen(false)}
-                className="text-white"
+                className="text-gray-700"
               >
                 <X size={28} />
               </button>
@@ -306,8 +306,8 @@ export default function Navbar() {
           <nav className="flex flex-col">
             {/* User Profile Section - Only show if logged in */}
             {user && (
-              <div className="flex items-center gap-4 px-5 py-5 border-b border-gray-700">
-                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-gray-600 shrink-0">
+              <div className="flex items-center gap-4 px-5 py-5 border-b border-gray-300">
+                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-gray-300 shrink-0">
                   {avatar ? (
                     <img
                       src={avatar}
@@ -315,18 +315,18 @@ export default function Navbar() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full bg-gray-700 text-white flex items-center justify-center font-bold text-xl">
+                    <div className="w-full h-full bg-gray-300 text-gray-700 flex items-center justify-center font-bold text-xl">
                       {username?.charAt(0)?.toUpperCase()}
                     </div>
                   )}
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <p className="text-white font-semibold text-base truncate">
+                  <p className="text-gray-900 font-semibold text-base truncate">
                     {username}
                   </p>
                   {user?.email && (
-                    <p className="text-gray-400 text-sm truncate">
+                    <p className="text-gray-600 text-sm truncate">
                       {user.email}
                     </p>
                   )}
@@ -338,7 +338,7 @@ export default function Navbar() {
             <Link
               to="/"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-white text-base font-normal px-5 py-4 border-b border-gray-700 hover:bg-gray-800 transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <Home size={20} strokeWidth={2} />
               Properties
@@ -347,7 +347,7 @@ export default function Navbar() {
             <Link
               to="/services"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-white text-base font-normal px-5 py-4 border-b border-gray-700 hover:bg-gray-800 transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <Briefcase size={20} strokeWidth={2} />
               Services
@@ -356,7 +356,7 @@ export default function Navbar() {
             <Link
               to="/products-marketplace"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-white text-base font-normal px-5 py-4 border-b border-gray-700 hover:bg-gray-800 transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <ShoppingBag size={20} strokeWidth={2} />
               Marketplace
@@ -365,7 +365,7 @@ export default function Navbar() {
             <Link
               to="/pricing"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-white text-base font-normal px-5 py-4 border-b border-gray-700 hover:bg-gray-800 transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <DollarSign size={20} strokeWidth={2} />
               Pricing
@@ -375,7 +375,7 @@ export default function Navbar() {
             <Link
               to="/refer-and-earn"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-white text-base font-semibold px-5 py-4 border-b border-gray-700 hover:bg-gray-800 transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-semibold px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <Gift size={20} strokeWidth={2.5} />
               Refer & Earn
@@ -384,7 +384,7 @@ export default function Navbar() {
             <Link
               to="/about"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-white text-base font-normal px-5 py-4 border-b border-gray-700 hover:bg-gray-800 transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <Info size={20} strokeWidth={2} />
               About
@@ -393,7 +393,7 @@ export default function Navbar() {
             <Link
               to="/contact"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-white text-base font-normal px-5 py-4 border-b border-gray-700 hover:bg-gray-800 transition"
+              className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <Phone size={20} strokeWidth={2} />
               Contact
@@ -405,7 +405,7 @@ export default function Navbar() {
                 <Link
                   to={getDashboardPath()}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-3 text-white text-base font-normal px-5 py-4 border-b border-gray-700 hover:bg-gray-800 transition"
+                  className="flex items-center gap-3 text-gray-800 text-base font-normal px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
                 >
                   <LayoutDashboard size={20} strokeWidth={2} />
                   Dashboard
@@ -413,7 +413,7 @@ export default function Navbar() {
 
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-3 text-red-400 text-base font-normal px-5 py-4 hover:bg-gray-800 transition text-left"
+                  className="flex items-center gap-3 text-red-600 text-base font-normal px-5 py-4 hover:bg-[#e5e1d8] transition text-left"
                 >
                   <LogOut size={20} />
                   Logout
@@ -423,7 +423,7 @@ export default function Navbar() {
               <Link
                 to="/login"
                 onClick={() => setMobileOpen(false)}
-                className="text-white text-base font-normal px-5 py-4 hover:bg-gray-800 transition"
+                className="text-gray-800 text-base font-normal px-5 py-4 hover:bg-[#e5e1d8] transition"
               >
                 Login / Register
               </Link>
