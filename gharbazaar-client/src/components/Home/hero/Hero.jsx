@@ -89,8 +89,8 @@ export default function Hero() {
 
     return (
         <section className="relative w-full bg-gray-100">
-            {/* Desktop Carousel - Same as Marketplace Page */}
-            <div className="hidden md:block relative w-full" style={{ paddingBottom: '28%' }}>
+            {/* Desktop Carousel - Adjusted for wider images */}
+            <div className="hidden md:block relative w-full" style={{ paddingBottom: '35%' }}>
                 {/* Slides */}
                 {slides.map((slide, index) => (
                     <Link
