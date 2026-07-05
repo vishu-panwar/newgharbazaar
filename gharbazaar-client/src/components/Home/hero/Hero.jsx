@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 import { useGetAdvertisementQuery } from "../../../store/HeroSectionQuery/getAdvertismentQuery";
 import HeroShimmer from "./HeroShimmer";
 
+// Import desktop hero images for property page
+import desktopHeroImage1 from "../../../assets/Screenshot 2026-07-05 210124.png";
+import desktopHeroImage2 from "../../../assets/Screenshot 2026-07-05 210133.png";
+import desktopHeroImage3 from "../../../assets/Screenshot 2026-07-05 210144.png";
+import desktopHeroImage4 from "../../../assets/Screenshot 2026-07-05 210154.png";
+
 // Import mobile hero images for property page
 import mobileHeroImage1 from "../../../assets/Screenshot 2026-07-05 205516.png";
 import mobileHeroImage2 from "../../../assets/Screenshot 2026-07-05 205535.png";
@@ -17,7 +23,15 @@ export default function Hero() {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const intervalRef = useRef(null);
 
-    const desktopSlides = data?.advertisements ?? [];
+    // Desktop slides with local images (fallback to API if needed)
+    const localDesktopSlides = [
+        { _id: 'desktop1', image: desktopHeroImage1, title: 'Find Your Perfect Home', link: '/properties' },
+        { _id: 'desktop2', image: desktopHeroImage2, title: 'PG & Hostels', link: '/properties' },
+        { _id: 'desktop3', image: desktopHeroImage3, title: 'List Your Property', link: '/dashboard/list-property' },
+        { _id: 'desktop4', image: desktopHeroImage4, title: 'Post Requirements', link: '/post-requirement' },
+    ];
+
+    const desktopSlides = data?.advertisements?.length ? data.advertisements : localDesktopSlides;
     
     // Mobile slides with local images
     const mobileSlides = [
@@ -113,8 +127,8 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Mobile Carousel - Local Images with Better Visibility */}
-            <div className="md:hidden relative w-full overflow-hidden">
+            {/* Mobile Carousel - Natural Height like Products Page */}
+            <div className="md:hidden relative w-full">
                 {/* Slides */}
                 {slides.map((slide, index) => (
                     <Link
@@ -127,7 +141,7 @@ export default function Hero() {
                         <img
                             src={slide.image}
                             alt={slide.title || "Banner"}
-                            className="w-full h-[480px] object-cover"
+                            className="w-full h-auto object-contain"
                         />
                     </Link>
                 ))}
