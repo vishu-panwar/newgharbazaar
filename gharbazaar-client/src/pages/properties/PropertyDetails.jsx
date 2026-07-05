@@ -24,6 +24,7 @@ import {
   useGetPropertyByIdQuery,
   useToggleBookmarkMutation,
   useUpdateviewMutation,
+  useGetPropertiesQuery,
 } from "../../store/propertyQuery/getPropertyQuery";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,6 +32,7 @@ import {
   addBookmark,
   removeBookmark
 } from "../../store/bookmark/bookMarkSlice";
+import RecentCard from "../../components/Home/properties/Recentsection/RecentCard";
 
 // ===============================
 // CONFIG
@@ -116,6 +118,36 @@ export default function PropertyDetails() {
   const { data, isLoading, isError } = useGetPropertyByIdQuery({ id });
   const [updateview] = useUpdateviewMutation();
   const property = data?.data;
+
+  // Fetch all properties for suggested and similar sections
+  const {
+    data: allPropertiesData,
+    isLoading: isLoadingProperties,
+  } = useGetPropertiesQuery(
+    undefined,
+    {
+      refetchOnMountOrArgChange: false,
+      refetchOnReconnect: false,
+      refetchOnFocus: false,
+    }
+  );
+
+  // Get suggested and similar properties
+  const suggestedProperties = useMemo(() => {
+    const allProperties =
+      Array.isArray(allPropertiesData)
+        ? allPropertiesData
+        : allPropertiesData?.data || [];
+    return allProperties.slice(0, 4);
+  }, [allPropertiesData]);
+
+  const similarProperties = useMemo(() => {
+    const allProperties =
+      Array.isArray(allPropertiesData)
+        ? allPropertiesData
+        : allPropertiesData?.data || [];
+    return allProperties.slice(4, 8);
+  }, [allPropertiesData]);
 
   const [currentImage, setCurrentImage] = useState(0);
 
@@ -853,181 +885,33 @@ ${propertyLink}
           {/* SUGGESTED PROPERTIES SECTION */}
           <div className="bg-[#ede8df] py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1600px] mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                Suggested Properties
-              </h2>
-              <p className="text-gray-600 mb-8">
-                Properties recommended based on your preferences
-              </p>
+              <div className="flex items-center justify-between mb-5">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 tracking-tight">
+                    Suggested Properties
+                  </h2>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Properties recommended based on your preferences
+                  </p>
+                </div>
+              </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {/* Property Card 1 */}
-                <div className="bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80" 
-                      alt="Property" 
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 text-xs font-bold">
-                      VERIFIED
-                    </div>
-                    <button className="absolute top-3 right-3 bg-white p-2 rounded-full hover:bg-gray-100">
-                      <Heart size={18} className="text-gray-700" />
-                    </button>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-lg text-gray-900 mb-2">
-                      Modern 2BHK Apartment
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-3 flex items-center gap-1">
-                      <MapPin size={14} />
-                      Koramangala, Bangalore
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {isLoadingProperties ? (
+                  [1, 2, 3, 4].map((item) => (
+                    <div key={item} className="bg-gray-100 h-80 animate-pulse"></div>
+                  ))
+                ) : suggestedProperties.length > 0 ? (
+                  suggestedProperties.map((prop) => (
+                    <RecentCard key={prop?._id} property={prop} />
+                  ))
+                ) : (
+                  <div className="col-span-full bg-white border border-dashed border-gray-200 py-14 text-center">
+                    <p className="text-gray-400 font-medium text-sm px-4">
+                      No suggested properties available
                     </p>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3 text-sm text-gray-600">
-                        <span className="flex items-center gap-1">
-                          <Bed size={16} /> 2
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Bath size={16} /> 2
-                        </span>
-                      </div>
-                      <span className="text-lg font-bold text-green-700">
-                        ₹25,000<span className="text-sm font-normal text-gray-600">/month</span>
-                      </span>
-                    </div>
-                    <button className="w-full bg-green-700 hover:bg-green-800 text-white py-2 text-sm font-semibold transition-colors">
-                      View Details
-                    </button>
                   </div>
-                </div>
-
-                {/* Property Card 2 */}
-                <div className="bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" 
-                      alt="Property" 
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 text-xs font-bold">
-                      VERIFIED
-                    </div>
-                    <button className="absolute top-3 right-3 bg-white p-2 rounded-full hover:bg-gray-100">
-                      <Heart size={18} className="text-gray-700" />
-                    </button>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-lg text-gray-900 mb-2">
-                      Spacious 3BHK Villa
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-3 flex items-center gap-1">
-                      <MapPin size={14} />
-                      Indiranagar, Bangalore
-                    </p>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3 text-sm text-gray-600">
-                        <span className="flex items-center gap-1">
-                          <Bed size={16} /> 3
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Bath size={16} /> 3
-                        </span>
-                      </div>
-                      <span className="text-lg font-bold text-green-700">
-                        ₹45,000<span className="text-sm font-normal text-gray-600">/month</span>
-                      </span>
-                    </div>
-                    <button className="w-full bg-green-700 hover:bg-green-800 text-white py-2 text-sm font-semibold transition-colors">
-                      View Details
-                    </button>
-                  </div>
-                </div>
-
-                {/* Property Card 3 */}
-                <div className="bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&q=80" 
-                      alt="Property" 
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 text-xs font-bold">
-                      VERIFIED
-                    </div>
-                    <button className="absolute top-3 right-3 bg-white p-2 rounded-full hover:bg-gray-100">
-                      <Heart size={18} className="text-gray-700" />
-                    </button>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-lg text-gray-900 mb-2">
-                      Cozy 1BHK Flat
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-3 flex items-center gap-1">
-                      <MapPin size={14} />
-                      Whitefield, Bangalore
-                    </p>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3 text-sm text-gray-600">
-                        <span className="flex items-center gap-1">
-                          <Bed size={16} /> 1
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Bath size={16} /> 1
-                        </span>
-                      </div>
-                      <span className="text-lg font-bold text-green-700">
-                        ₹15,000<span className="text-sm font-normal text-gray-600">/month</span>
-                      </span>
-                    </div>
-                    <button className="w-full bg-green-700 hover:bg-green-800 text-white py-2 text-sm font-semibold transition-colors">
-                      View Details
-                    </button>
-                  </div>
-                </div>
-
-                {/* Property Card 4 */}
-                <div className="bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&q=80" 
-                      alt="Property" 
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 text-xs font-bold">
-                      VERIFIED
-                    </div>
-                    <button className="absolute top-3 right-3 bg-white p-2 rounded-full hover:bg-gray-100">
-                      <Heart size={18} className="text-gray-700" />
-                    </button>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-lg text-gray-900 mb-2">
-                      Luxury 4BHK Penthouse
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-3 flex items-center gap-1">
-                      <MapPin size={14} />
-                      HSR Layout, Bangalore
-                    </p>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3 text-sm text-gray-600">
-                        <span className="flex items-center gap-1">
-                          <Bed size={16} /> 4
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Bath size={16} /> 4
-                        </span>
-                      </div>
-                      <span className="text-lg font-bold text-green-700">
-                        ₹75,000<span className="text-sm font-normal text-gray-600">/month</span>
-                      </span>
-                    </div>
-                    <button className="w-full bg-green-700 hover:bg-green-800 text-white py-2 text-sm font-semibold transition-colors">
-                      View Details
-                    </button>
-                  </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
@@ -1035,181 +919,33 @@ ${propertyLink}
           {/* SIMILAR PROPERTIES SECTION */}
           <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1600px] mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                Similar Properties
-              </h2>
-              <p className="text-gray-600 mb-8">
-                Properties in the same area with similar features
-              </p>
+              <div className="flex items-center justify-between mb-5">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 tracking-tight">
+                    Similar Properties
+                  </h2>
+                  <p className="text-sm text-gray-600 mt-1">
+                    Properties in the same area with similar features
+                  </p>
+                </div>
+              </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {/* Property Card 1 */}
-                <div className="bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&q=80" 
-                      alt="Property" 
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 text-xs font-bold">
-                      VERIFIED
-                    </div>
-                    <button className="absolute top-3 right-3 bg-white p-2 rounded-full hover:bg-gray-100">
-                      <Heart size={18} className="text-gray-700" />
-                    </button>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-lg text-gray-900 mb-2">
-                      Premium 2BHK Flat
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-3 flex items-center gap-1">
-                      <MapPin size={14} />
-                      BTM Layout, Bangalore
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                {isLoadingProperties ? (
+                  [1, 2, 3, 4].map((item) => (
+                    <div key={item} className="bg-gray-100 h-80 animate-pulse"></div>
+                  ))
+                ) : similarProperties.length > 0 ? (
+                  similarProperties.map((prop) => (
+                    <RecentCard key={prop?._id} property={prop} />
+                  ))
+                ) : (
+                  <div className="col-span-full bg-white border border-dashed border-gray-200 py-14 text-center">
+                    <p className="text-gray-400 font-medium text-sm px-4">
+                      No similar properties available
                     </p>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3 text-sm text-gray-600">
-                        <span className="flex items-center gap-1">
-                          <Bed size={16} /> 2
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Bath size={16} /> 2
-                        </span>
-                      </div>
-                      <span className="text-lg font-bold text-green-700">
-                        ₹28,000<span className="text-sm font-normal text-gray-600">/month</span>
-                      </span>
-                    </div>
-                    <button className="w-full bg-green-700 hover:bg-green-800 text-white py-2 text-sm font-semibold transition-colors">
-                      View Details
-                    </button>
                   </div>
-                </div>
-
-                {/* Property Card 2 */}
-                <div className="bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&q=80" 
-                      alt="Property" 
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 text-xs font-bold">
-                      VERIFIED
-                    </div>
-                    <button className="absolute top-3 right-3 bg-white p-2 rounded-full hover:bg-gray-100">
-                      <Heart size={18} className="text-gray-700" />
-                    </button>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-lg text-gray-900 mb-2">
-                      Modern Studio Apartment
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-3 flex items-center gap-1">
-                      <MapPin size={14} />
-                      Electronic City, Bangalore
-                    </p>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3 text-sm text-gray-600">
-                        <span className="flex items-center gap-1">
-                          <Bed size={16} /> 1
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Bath size={16} /> 1
-                        </span>
-                      </div>
-                      <span className="text-lg font-bold text-green-700">
-                        ₹12,000<span className="text-sm font-normal text-gray-600">/month</span>
-                      </span>
-                    </div>
-                    <button className="w-full bg-green-700 hover:bg-green-800 text-white py-2 text-sm font-semibold transition-colors">
-                      View Details
-                    </button>
-                  </div>
-                </div>
-
-                {/* Property Card 3 */}
-                <div className="bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=80" 
-                      alt="Property" 
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 text-xs font-bold">
-                      VERIFIED
-                    </div>
-                    <button className="absolute top-3 right-3 bg-white p-2 rounded-full hover:bg-gray-100">
-                      <Heart size={18} className="text-gray-700" />
-                    </button>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-lg text-gray-900 mb-2">
-                      Elegant 3BHK Apartment
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-3 flex items-center gap-1">
-                      <MapPin size={14} />
-                      Marathahalli, Bangalore
-                    </p>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3 text-sm text-gray-600">
-                        <span className="flex items-center gap-1">
-                          <Bed size={16} /> 3
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Bath size={16} /> 2
-                        </span>
-                      </div>
-                      <span className="text-lg font-bold text-green-700">
-                        ₹35,000<span className="text-sm font-normal text-gray-600">/month</span>
-                      </span>
-                    </div>
-                    <button className="w-full bg-green-700 hover:bg-green-800 text-white py-2 text-sm font-semibold transition-colors">
-                      View Details
-                    </button>
-                  </div>
-                </div>
-
-                {/* Property Card 4 */}
-                <div className="bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="relative">
-                    <img 
-                      src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500&q=80" 
-                      alt="Property" 
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 text-xs font-bold">
-                      VERIFIED
-                    </div>
-                    <button className="absolute top-3 right-3 bg-white p-2 rounded-full hover:bg-gray-100">
-                      <Heart size={18} className="text-gray-700" />
-                    </button>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-bold text-lg text-gray-900 mb-2">
-                      Duplex 3BHK House
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-3 flex items-center gap-1">
-                      <MapPin size={14} />
-                      Bellandur, Bangalore
-                    </p>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3 text-sm text-gray-600">
-                        <span className="flex items-center gap-1">
-                          <Bed size={16} /> 3
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Bath size={16} /> 3
-                        </span>
-                      </div>
-                      <span className="text-lg font-bold text-green-700">
-                        ₹50,000<span className="text-sm font-normal text-gray-600">/month</span>
-                      </span>
-                    </div>
-                    <button className="w-full bg-green-700 hover:bg-green-800 text-white py-2 text-sm font-semibold transition-colors">
-                      View Details
-                    </button>
-                  </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
