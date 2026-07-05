@@ -18,7 +18,7 @@ const HeroBanner = () => {
   return (
     <>
       {/* Mobile Search Bar & Category Buttons (Only visible on mobile) */}
-      <div className="block md:hidden bg-[#f5f1e8] px-4 py-5">
+      <div className="block md:hidden bg-[#ede8df] px-4 py-5">
         {/* Search Bar */}
         <div className="flex gap-2 mb-5">
           <div className="relative flex-1">
@@ -26,7 +26,7 @@ const HeroBanner = () => {
             <input
               type="text"
               placeholder="Search by location, city or area.."
-              className="w-full pl-11 pr-4 py-3.5 bg-white border border-gray-200 rounded-xl text-sm placeholder-gray-400 outline-none focus:border-green-600 focus:ring-1 focus:ring-green-600 shadow-sm"
+              className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-sm placeholder-gray-400 outline-none focus:border-green-600 focus:ring-1 focus:ring-green-600 shadow-sm"
             />
           </div>
           <button className="bg-green-600 hover:bg-green-700 text-white px-5 rounded-xl flex items-center gap-2 font-bold text-sm transition-colors shadow-sm">
@@ -35,38 +35,38 @@ const HeroBanner = () => {
           </button>
         </div>
 
-        {/* Category Buttons - 4 Columns */}
+        {/* Category Buttons - 4 Columns with gray background and green icons */}
         <div className="grid grid-cols-4 gap-3">
-          <button className="flex flex-col items-center gap-2.5 p-4 bg-gradient-to-br from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 rounded-2xl transition-all shadow-md">
-            <div className="w-16 h-16 bg-green-500/40 rounded-full flex items-center justify-center backdrop-blur-sm">
-              <Home size={28} className="text-white" strokeWidth={2.5} />
+          <button className="flex flex-col items-center gap-2.5 p-4 bg-gray-100 hover:bg-gray-200 rounded-2xl transition-all shadow-sm">
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+              <Home size={28} className="text-green-600" strokeWidth={2.5} />
             </div>
             <span className="text-xs font-bold text-gray-900 leading-tight text-center">Rent a Home</span>
           </button>
 
           <button
             onClick={handleRentPG}
-            className="flex flex-col items-center gap-2.5 p-4 bg-gradient-to-br from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 rounded-2xl transition-all shadow-md"
+            className="flex flex-col items-center gap-2.5 p-4 bg-gray-100 hover:bg-gray-200 rounded-2xl transition-all shadow-sm"
           >
-            <div className="w-16 h-16 bg-green-500/40 rounded-full flex items-center justify-center backdrop-blur-sm">
-              <Building2 size={28} className="text-white" strokeWidth={2.5} />
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+              <Building2 size={28} className="text-green-600" strokeWidth={2.5} />
             </div>
             <span className="text-xs font-bold text-gray-900 leading-tight text-center">PG Rooms</span>
           </button>
 
           <Link
             to="/dashboard/list-property"
-            className="flex flex-col items-center gap-2.5 p-4 bg-gradient-to-br from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 rounded-2xl transition-all shadow-md"
+            className="flex flex-col items-center gap-2.5 p-4 bg-gray-100 hover:bg-gray-200 rounded-2xl transition-all shadow-sm"
           >
-            <div className="w-16 h-16 bg-green-500/40 rounded-full flex items-center justify-center backdrop-blur-sm">
-              <FileText size={28} className="text-white" strokeWidth={2.5} />
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+              <FileText size={28} className="text-green-600" strokeWidth={2.5} />
             </div>
             <span className="text-xs font-bold text-gray-900 leading-tight text-center">List Property</span>
           </Link>
 
-          <button className="flex flex-col items-center gap-2.5 p-4 bg-gradient-to-br from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 rounded-2xl transition-all shadow-md">
-            <div className="w-16 h-16 bg-green-500/40 rounded-full flex items-center justify-center backdrop-blur-sm">
-              <ClipboardList size={28} className="text-white" strokeWidth={2.5} />
+          <button className="flex flex-col items-center gap-2.5 p-4 bg-gray-100 hover:bg-gray-200 rounded-2xl transition-all shadow-sm">
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+              <ClipboardList size={28} className="text-green-600" strokeWidth={2.5} />
             </div>
             <span className="text-xs font-bold text-gray-900 leading-tight text-center">Requirement</span>
           </button>
