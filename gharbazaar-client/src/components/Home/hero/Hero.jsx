@@ -113,8 +113,8 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Mobile Carousel - Local Images with Natural Aspect Ratio */}
-            <div className="md:hidden relative w-full">
+            {/* Mobile Carousel - Local Images with Better Visibility */}
+            <div className="md:hidden relative w-full overflow-hidden">
                 {/* Slides */}
                 {slides.map((slide, index) => (
                     <Link
@@ -127,7 +127,7 @@ export default function Hero() {
                         <img
                             src={slide.image}
                             alt={slide.title || "Banner"}
-                            className="w-full h-auto object-contain"
+                            className="w-full h-[480px] object-cover"
                         />
                     </Link>
                 ))}
