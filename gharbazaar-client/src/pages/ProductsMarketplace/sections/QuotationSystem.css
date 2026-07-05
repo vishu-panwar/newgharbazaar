@@ -1,0 +1,194 @@
+/* ========================================
+   QUOTATION SYSTEM SECTION
+   ======================================== */
+
+.quotation-section {
+  background: linear-gradient(135deg, #f8fafb 0%, #ffffff 100%);
+}
+
+.quotation-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Content */
+.quotation-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.quotation-description {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.quotation-features {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.quotation-feature {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.quotation-feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1f9d55 0%, #178a48 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(31, 157, 85, 0.25);
+}
+
+.quotation-feature-content h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+.quotation-feature-content p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Visual Mockup */
+.quotation-mockup {
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.mockup-header {
+  background: linear-gradient(135deg, #1f9d55 0%, #178a48 100%);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mockup-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.mockup-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.mockup-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.mockup-body {
+  padding: 28px 24px;
+  background: white;
+}
+
+.mockup-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #f8fafb;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.mockup-check {
+  color: #1f9d55;
+  flex-shrink: 0;
+}
+
+.mockup-vendors {
+  margin: 24px 0;
+  padding: 16px;
+  background: rgba(31, 157, 85, 0.08);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.mockup-vendors strong {
+  color: #1f9d55;
+}
+
+.mockup-btn {
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #1f9d55 0%, #178a48 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mockup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(31, 157, 85, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .quotation-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .quotation-title {
+    font-size: 36px;
+  }
+
+  .quotation-description {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .quotation-title {
+    font-size: 28px;
+  }
+
+  .quotation-features {
+    gap: 20px;
+  }
+
+  .quotation-feature {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .quotation-feature-content h4 {
+    font-size: 16px;
+  }
+}

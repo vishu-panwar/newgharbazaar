@@ -1,0 +1,156 @@
+/* ========================================
+   CUSTOMER REVIEWS SECTION
+   ======================================== */
+
+.customer-reviews-section {
+  background: linear-gradient(135deg, #f8fafb 0%, #ffffff 100%);
+}
+
+.reviews-carousel {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-bottom: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.review-card {
+  padding: 36px 32px;
+  border-radius: 20px;
+  position: relative;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-icon {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  color: rgba(31, 157, 85, 0.15);
+}
+
+.review-rating {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.review-text {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 28px;
+  flex: 1;
+  font-style: italic;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.author-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #1f9d55;
+}
+
+.author-info {
+  flex: 1;
+}
+
+.author-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.verified-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1f9d55;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.author-role {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(31, 157, 85, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicator.active {
+  background: #1f9d55;
+  width: 32px;
+  border-radius: 6px;
+}
+
+.carousel-indicator:hover {
+  background: rgba(31, 157, 85, 0.6);
+}
+
+@media (max-width: 1024px) {
+  .reviews-carousel {
+    gap: 24px;
+  }
+
+  .review-card {
+    padding: 28px 24px;
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews-carousel {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .review-card {
+    padding: 24px 20px;
+    min-height: auto;
+  }
+
+  .review-text {
+    font-size: 15px;
+  }
+
+  .quote-icon {
+    top: 20px;
+    right: 20px;
+  }
+}

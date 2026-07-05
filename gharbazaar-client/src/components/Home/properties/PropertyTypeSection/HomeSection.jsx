@@ -46,7 +46,7 @@ const HomeSection = () => {
 
   return (
     
-    <section className="bg-[#ede8df] py-6 px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#ede8df] py-3 sm:py-6 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-[1600px] mx-auto">
 
         {/* HEADER */}

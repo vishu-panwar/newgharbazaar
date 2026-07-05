@@ -25,9 +25,11 @@ import CouponGenerator from "./pages/employeDashBoard/couponGenearate/CouponGene
 const Home = lazy(() => import("./pages/Home/Home"));
 const Services = lazy(() => import("./pages/Services"));
 const Marketplace = lazy(() => import("./pages/Marketplace"));
+const ProductsMarketplace = lazy(() => import("./pages/ProductsMarketplace/ProductsMarketplace"));
 const Pricing = lazy(() => import("./pages/pricing/Pricing"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
 const About = lazy(() => import("./pages/About"));
+const ReferAndEarn = lazy(() => import("./pages/ReferAndEarn"));
 const Cart = lazy(() => import("./pages/Cart"));
 const Login = lazy(() => import("./pages/authenticate/Login"));
 const Register = lazy(() => import("./pages/authenticate/Register"));
@@ -231,8 +233,10 @@ useEffect(() => {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/services" element={<Services />} />
           <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/products-marketplace" element={<ProductsMarketplace />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<About />} />
+          <Route path="/refer-and-earn" element={<ReferAndEarn />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />

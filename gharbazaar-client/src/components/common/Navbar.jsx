@@ -7,6 +7,7 @@ import {
   Menu,
   X,
   LogOut,
+  Gift,
 } from "lucide-react";
 import axios from "axios";
 import { useGetBookmarkQuery } from "../../store/propertyQuery/getPropertyQuery";
@@ -14,8 +15,9 @@ import { useGetBookmarkQuery } from "../../store/propertyQuery/getPropertyQuery"
 const NAV_LINKS = [
   { label: "Properties", path: "/" },
   { label: "Services", path: "/services" },
-  { label: "Marketplace", path: "/marketplace" },
+  { label: "Marketplace", path: "/products-marketplace" },
   { label: "Pricing", path: "/pricing" },
+  { label: "Refer & Earn", path: "/refer-and-earn", isSpecial: true },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
 ];
@@ -123,19 +125,64 @@ export default function Navbar() {
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-2">
-              {NAV_LINKS.map(({ label, path }) => {
-                const isActive = location.pathname === path;
-                const isGreenButton = ["Properties", "Services", "Marketplace"].includes(label);
+              {/* Glass effect background for the three main links */}
+              <div className="relative flex items-center gap-2">
+                {/* Glassmorphism cylinder background (outer) */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1f9d55]/20 via-[#1f9d55]/15 to-[#1f9d55]/20 backdrop-blur-sm rounded-full border border-[#1f9d55]/30 shadow-lg -m-1"></div>
+                
+                {/* Animated sliding dark glass cylinder for active link (inner) */}
+                <div 
+                  className="absolute top-0 bottom-0 bg-gradient-to-r from-[#1f9d55]/40 via-[#1f9d55]/50 to-[#1f9d55]/40 backdrop-blur-md rounded-full border border-[#1f9d55]/60 shadow-md transition-all duration-300 ease-in-out"
+                  style={{
+                    left: location.pathname === "/" ? "0px" : 
+                          location.pathname === "/services" ? "33.33%" : 
+                          location.pathname === "/products-marketplace" ? "66.66%" : "0px",
+                    width: "33.33%",
+                  }}
+                ></div>
+                
+                {/* Links without dark green background - just text */}
+                {NAV_LINKS.filter(({ label }) => 
+                  ["Properties", "Services", "Marketplace"].includes(label)
+                ).map(({ label, path }) => {
+                  const isActive = location.pathname === path;
+                  return (
+                    <Link
+                      key={label}
+                      to={path}
+                      className={`relative z-10 text-[15px] font-medium transition-colors duration-300 px-4 py-1.5 flex-1 text-center ${
+                        isActive ? "text-gray-900 font-semibold" : "text-gray-700 hover:text-gray-900"
+                      }`}
+                    >
+                      {label}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* Other nav links */}
+              {NAV_LINKS.filter(({ label }) => 
+                !["Properties", "Services", "Marketplace"].includes(label)
+              ).map(({ label, path, isSpecial }) => {
+                // Special styling for Refer & Earn - removed yellow background
+                if (isSpecial) {
+                  return (
+                    <Link
+                      key={label}
+                      to={path}
+                      className="relative text-[15px] font-semibold transition-all px-4 py-1.5 text-gray-700 hover:text-black flex items-center gap-1.5"
+                    >
+                      <Gift size={16} strokeWidth={2.5} />
+                      {label}
+                    </Link>
+                  );
+                }
 
                 return (
                   <Link
                     key={label}
                     to={path}
-                    className={`relative text-[15px] font-medium transition-all px-4 py-1.5 ${
-                      isGreenButton
-                        ? "bg-[#1f9d55] text-white hover:bg-[#178a48]"
-                        : "text-gray-700 hover:text-black"
-                    }`}
+                    className="relative text-[15px] font-medium transition-all px-4 py-1.5 text-gray-700 hover:text-black"
                   >
                     {label}
                   </Link>
@@ -298,7 +345,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              to="/marketplace"
+              to="/products-marketplace"
               onClick={() => setMobileOpen(false)}
               className="text-gray-900 text-base font-normal px-5 py-4 border-b border-gray-200 hover:bg-gray-50 transition"
             >
@@ -311,6 +358,16 @@ export default function Navbar() {
               className="text-gray-900 text-base font-normal px-5 py-4 border-b border-gray-200 hover:bg-gray-50 transition"
             >
               Pricing
+            </Link>
+
+            {/* Refer & Earn - removed yellow background */}
+            <Link
+              to="/refer-and-earn"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center gap-2 text-base font-semibold px-5 py-4 border-b border-gray-200 text-gray-900 hover:bg-gray-50 transition"
+            >
+              <Gift size={20} strokeWidth={2.5} />
+              Refer & Earn
             </Link>
 
             <Link
