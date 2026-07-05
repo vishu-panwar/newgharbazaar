@@ -21,8 +21,8 @@ import { useGetBookmarkQuery } from "../../store/propertyQuery/getPropertyQuery"
 
 const NAV_LINKS = [
   { label: "Properties", path: "/" },
-  { label: "Services", path: "/services" },
   { label: "Marketplace", path: "/products-marketplace" },
+  { label: "Services", path: "/services" },
   { label: "Pricing", path: "/pricing" },
   { label: "Refer & Earn", path: "/refer-and-earn", isSpecial: true },
   { label: "About", path: "/about" },
@@ -142,15 +142,15 @@ export default function Navbar() {
                   className="absolute top-0 bottom-0 bg-gradient-to-r from-[#1f9d55]/40 via-[#1f9d55]/50 to-[#1f9d55]/40 backdrop-blur-md rounded-full border border-[#1f9d55]/60 shadow-md transition-all duration-300 ease-in-out"
                   style={{
                     left: location.pathname === "/" ? "0px" : 
-                          location.pathname === "/services" ? "33.33%" : 
-                          location.pathname === "/products-marketplace" ? "66.66%" : "0px",
+                          location.pathname === "/products-marketplace" ? "33.33%" : 
+                          location.pathname === "/services" ? "66.66%" : "0px",
                     width: "33.33%",
                   }}
                 ></div>
                 
                 {/* Links without dark green background - just text */}
                 {NAV_LINKS.filter(({ label }) => 
-                  ["Properties", "Services", "Marketplace"].includes(label)
+                  ["Properties", "Marketplace", "Services"].includes(label)
                 ).map(({ label, path }) => {
                   const isActive = location.pathname === path;
                   return (
@@ -169,7 +169,7 @@ export default function Navbar() {
 
               {/* Other nav links */}
               {NAV_LINKS.filter(({ label }) => 
-                !["Properties", "Services", "Marketplace"].includes(label)
+                !["Properties", "Marketplace", "Services"].includes(label)
               ).map(({ label, path, isSpecial }) => {
                 // Normal link for Refer & Earn without icon
                 return (
