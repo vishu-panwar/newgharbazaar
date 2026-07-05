@@ -62,6 +62,12 @@ const DashboardLayout = lazy(() => import("./pages/dashboard/DashboardLayout"));
 
 const Dashboard = lazy(() => import("./pages/dashboard/dashboard/Dashboard"));
 
+const ReferEarnDashboard = lazy(() => import("./pages/dashboard/dashboard/ReferEarnDashboard"));
+
+const Payments = lazy(() => import("./pages/dashboard/payments/Payments"));
+
+const Profile = lazy(() => import("./pages/dashboard/profile/Profile"));
+
 const ListProperty = lazy(
   () => import("./pages/dashboard/listproperty/ListProperty"),
 );
@@ -271,8 +277,10 @@ useEffect(() => {
               <Route path="list-property" element={<ListProperty />} />
               <Route path="my-listings" element={<MyListings />} />
               <Route path="favorites" element={<Favorites />} />
+              <Route path="payments" element={<Payments />} />
+              <Route path="refer-earn" element={<ReferEarnDashboard />} />
+              <Route path="profile" element={<Profile />} />
               <Route path="cart" element={<Cart />} />
-              <Route path="payments" element={<DashboardPayments />} />
               <Route path="kyc-verification" element={<KYCVerification />} />
               <Route path="proposals" element={<MyProposals />} />
               <Route path="proposals/:id" element={<ProposalDetails />} />

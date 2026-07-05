@@ -48,6 +48,12 @@ import heroImage2 from "../../assets/Screenshot 2026-07-05 191407.png";
 import heroImage3 from "../../assets/Screenshot 2026-07-05 192008.png";
 import heroImage4 from "../../assets/Screenshot 2026-07-05 192032.png";
 
+// Import mobile hero images
+import mobileHeroImage1 from "../../assets/Screenshot 2026-07-05 202930.png";
+import mobileHeroImage2 from "../../assets/Screenshot 2026-07-05 202943.png";
+import mobileHeroImage3 from "../../assets/Screenshot 2026-07-05 203003.png";
+import mobileHeroImage4 from "../../assets/Screenshot 2026-07-05 203025.png";
+
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const PAGE_LIMIT = 8;
@@ -650,7 +656,8 @@ export default function ProductsMarketplace() {
 function HeroBanner() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const slides = [
+  // Desktop carousel slides
+  const desktopSlides = [
     {
       id: 1,
       image: heroImage1,
@@ -673,6 +680,43 @@ function HeroBanner() {
     },
   ];
 
+  // Mobile carousel slides
+  const mobileSlides = [
+    {
+      id: 1,
+      image: mobileHeroImage1,
+      title: "Discover Quality Products",
+    },
+    {
+      id: 2,
+      image: mobileHeroImage2,
+      title: "Connect with Verified Vendors",
+    },
+    {
+      id: 3,
+      image: mobileHeroImage3,
+      title: "Zero Commission Marketplace",
+    },
+    {
+      id: 4,
+      image: mobileHeroImage4,
+      title: "Building Materials to Smart Home",
+    },
+  ];
+
+  // Use appropriate slides based on screen size
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const slides = isMobile ? mobileSlides : desktopSlides;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -683,7 +727,8 @@ function HeroBanner() {
 
   return (
     <section className="relative w-full bg-gray-100">
-      <div className="relative w-full" style={{ paddingBottom: '28%' }}>
+      {/* Desktop Carousel */}
+      <div className="hidden md:block relative w-full" style={{ paddingBottom: '28%' }}>
         {/* Slides */}
         {slides.map((slide, index) => (
           <div
@@ -696,6 +741,41 @@ function HeroBanner() {
               src={slide.image}
               alt={slide.title}
               className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+        ))}
+        
+        {/* Navigation Dots */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === currentSlide
+                  ? "w-8 bg-white"
+                  : "w-2 bg-white/60 hover:bg-white/80"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Mobile Carousel - Full Width with Natural Aspect Ratio */}
+      <div className="md:hidden relative w-full">
+        {/* Slides */}
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`transition-opacity duration-700 ${
+              index === currentSlide ? "opacity-100" : "opacity-0 absolute inset-0"
+            }`}
+          >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-auto object-contain"
             />
           </div>
         ))}
