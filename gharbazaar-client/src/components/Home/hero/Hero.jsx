@@ -75,8 +75,8 @@ export default function Hero() {
 
     return (
         <section className="relative w-full bg-gray-100">
-            {/* Desktop Carousel - Adjusted for wider images */}
-            <div className="hidden md:block relative w-full" style={{ paddingBottom: '35%' }}>
+            {/* Desktop Carousel */}
+            <div className="hidden md:block relative w-full" style={{ paddingBottom: '28%' }}>
                 {/* Slides */}
                 {slides.map((slide, index) => (
                     <Link
@@ -89,7 +89,7 @@ export default function Hero() {
                         <img
                             src={slide.image}
                             alt={slide.title || "Banner"}
-                            className="w-full h-full object-cover"
+                            className="absolute inset-0 w-full h-full object-cover"
                         />
                     </Link>
                 ))}
