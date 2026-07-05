@@ -138,7 +138,7 @@ export default function PropertyDetails() {
       Array.isArray(allPropertiesData)
         ? allPropertiesData
         : allPropertiesData?.data || [];
-    return allProperties.slice(0, 4);
+    return allProperties.slice(0, 5);
   }, [allPropertiesData]);
 
   const similarProperties = useMemo(() => {
@@ -146,7 +146,7 @@ export default function PropertyDetails() {
       Array.isArray(allPropertiesData)
         ? allPropertiesData
         : allPropertiesData?.data || [];
-    return allProperties.slice(4, 8);
+    return allProperties.slice(5, 10);
   }, [allPropertiesData]);
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -896,9 +896,9 @@ ${propertyLink}
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
                 {isLoadingProperties ? (
-                  [1, 2, 3, 4].map((item) => (
+                  [1, 2, 3, 4, 5].map((item) => (
                     <div key={item} className="bg-gray-100 h-80 animate-pulse"></div>
                   ))
                 ) : suggestedProperties.length > 0 ? (
@@ -917,7 +917,7 @@ ${propertyLink}
           </div>
 
           {/* SIMILAR PROPERTIES SECTION */}
-          <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#ede8df] py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-[1600px] mx-auto">
               <div className="flex items-center justify-between mb-5">
                 <div>
@@ -930,9 +930,9 @@ ${propertyLink}
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
                 {isLoadingProperties ? (
-                  [1, 2, 3, 4].map((item) => (
+                  [1, 2, 3, 4, 5].map((item) => (
                     <div key={item} className="bg-gray-100 h-80 animate-pulse"></div>
                   ))
                 ) : similarProperties.length > 0 ? (
