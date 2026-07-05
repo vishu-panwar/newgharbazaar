@@ -21,7 +21,7 @@ import { useGetBookmarkQuery } from "../../store/propertyQuery/getPropertyQuery"
 
 const NAV_LINKS = [
   { label: "Properties", path: "/" },
-  { label: "Marketplace", path: "/products-marketplace" },
+  { label: "Products", path: "/products-marketplace" },
   { label: "Services", path: "/services" },
   { label: "Pricing", path: "/pricing" },
   { label: "Refer & Earn", path: "/refer-and-earn", isSpecial: true },
@@ -150,7 +150,7 @@ export default function Navbar() {
                 
                 {/* Links without dark green background - just text */}
                 {NAV_LINKS.filter(({ label }) => 
-                  ["Properties", "Marketplace", "Services"].includes(label)
+                  ["Properties", "Products", "Services"].includes(label)
                 ).map(({ label, path }) => {
                   const isActive = location.pathname === path;
                   return (
@@ -169,7 +169,7 @@ export default function Navbar() {
 
               {/* Other nav links */}
               {NAV_LINKS.filter(({ label }) => 
-                !["Properties", "Marketplace", "Services"].includes(label)
+                !["Properties", "Products", "Services"].includes(label)
               ).map(({ label, path, isSpecial }) => {
                 // Normal link for Refer & Earn without icon
                 return (
