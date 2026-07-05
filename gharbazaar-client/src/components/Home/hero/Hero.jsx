@@ -23,7 +23,7 @@ export default function Hero() {
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const intervalRef = useRef(null);
 
-    // Desktop slides with local images (fallback to API if needed)
+    // Desktop slides with local images
     const localDesktopSlides = [
         { _id: 'desktop1', image: desktopHeroImage1, title: 'Find Your Perfect Home', link: '/properties' },
         { _id: 'desktop2', image: desktopHeroImage2, title: 'PG & Hostels', link: '/properties' },
@@ -31,7 +31,8 @@ export default function Hero() {
         { _id: 'desktop4', image: desktopHeroImage4, title: 'Post Requirements', link: '/post-requirement' },
     ];
 
-    const desktopSlides = data?.advertisements?.length ? data.advertisements : localDesktopSlides;
+    // Always use local desktop slides (not API)
+    const desktopSlides = localDesktopSlides;
     
     // Mobile slides with local images
     const mobileSlides = [
