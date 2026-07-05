@@ -131,9 +131,9 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-2">
+            <nav className="hidden lg:flex items-center gap-1">
               {/* Glass effect background for the three main links */}
-              <div className="relative flex items-center gap-2">
+              <div className="relative flex items-center gap-1">
                 {/* Glassmorphism cylinder background (outer) */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#1f9d55]/20 via-[#1f9d55]/15 to-[#1f9d55]/20 backdrop-blur-sm rounded-full border border-[#1f9d55]/30 shadow-lg -m-1"></div>
                 
@@ -157,7 +157,7 @@ export default function Navbar() {
                     <Link
                       key={label}
                       to={path}
-                      className={`relative z-10 text-[15px] font-medium transition-colors duration-300 px-4 py-1.5 flex-1 text-center ${
+                      className={`relative z-10 text-[15px] font-medium transition-colors duration-300 px-3 py-1.5 flex-1 text-center ${
                         isActive ? "text-gray-900 font-semibold" : "text-gray-700 hover:text-gray-900"
                       }`}
                     >
@@ -171,25 +171,12 @@ export default function Navbar() {
               {NAV_LINKS.filter(({ label }) => 
                 !["Properties", "Services", "Marketplace"].includes(label)
               ).map(({ label, path, isSpecial }) => {
-                // Special styling for Refer & Earn - removed yellow background
-                if (isSpecial) {
-                  return (
-                    <Link
-                      key={label}
-                      to={path}
-                      className="relative text-[15px] font-semibold transition-all px-4 py-1.5 text-gray-700 hover:text-black flex items-center gap-1.5"
-                    >
-                      <Gift size={16} strokeWidth={2.5} />
-                      {label}
-                    </Link>
-                  );
-                }
-
+                // Normal link for Refer & Earn without icon
                 return (
                   <Link
                     key={label}
                     to={path}
-                    className="relative text-[15px] font-medium transition-all px-4 py-1.5 text-gray-700 hover:text-black"
+                    className="relative text-[15px] font-medium transition-all px-3 py-1.5 text-gray-700 hover:text-black"
                   >
                     {label}
                   </Link>
