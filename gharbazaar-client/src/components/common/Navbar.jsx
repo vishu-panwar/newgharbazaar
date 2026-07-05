@@ -332,21 +332,21 @@ export default function Navbar() {
             </Link>
 
             <Link
+              to="/products-marketplace"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center gap-3 text-gray-800 text-base font-semibold px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
+            >
+              <ShoppingBag size={20} strokeWidth={2} />
+              Products
+            </Link>
+
+            <Link
               to="/services"
               onClick={() => setMobileOpen(false)}
               className="flex items-center gap-3 text-gray-800 text-base font-semibold px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
             >
               <Briefcase size={20} strokeWidth={2} />
               Services
-            </Link>
-
-            <Link
-              to="/products-marketplace"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 text-gray-800 text-base font-semibold px-5 py-4 border-b border-gray-300 hover:bg-[#e5e1d8] transition"
-            >
-              <ShoppingBag size={20} strokeWidth={2} />
-              Marketplace
             </Link>
 
             <Link
