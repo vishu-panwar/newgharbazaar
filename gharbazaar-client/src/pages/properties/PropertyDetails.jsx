@@ -420,7 +420,7 @@ ${propertyLink}
       <div className="min-h-screen bg-[#ede8df] pb-20">
         {/* TOP BAR - STICKY */}
         <div className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-          <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 h-16 flex items-center justify-between">
             <BackButton onClick={() => navigate(-1)} variant="light" />
             <div className="flex items-center gap-2">
               <span
@@ -437,8 +437,8 @@ ${propertyLink}
         </div>
 
         {/* MAIN CONTENT - WHITE CONTAINER */}
-        <div className="max-w-[1400px] mx-auto px-6 py-8">
-          <div className="bg-white p-8 shadow-sm">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 py-8">
+          <div className="bg-white p-6 sm:p-8 lg:p-10 shadow-sm">
           
           {/* TOP SECTION: Images + Info */}
           <div className="flex flex-col lg:flex-row gap-8 mb-8">
@@ -883,7 +883,7 @@ ${propertyLink}
           </div>
 
           {/* SUGGESTED PROPERTIES SECTION */}
-          <div className="bg-[#ede8df] py-12 px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#ede8df] py-12 px-4 sm:px-6 lg:px-12">
             <div className="max-w-[1600px] mx-auto">
               <div className="flex items-center justify-between mb-5">
                 <div>
@@ -917,7 +917,7 @@ ${propertyLink}
           </div>
 
           {/* SIMILAR PROPERTIES SECTION */}
-          <div className="bg-[#ede8df] py-12 px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#ede8df] py-12 px-4 sm:px-6 lg:px-12">
             <div className="max-w-[1600px] mx-auto">
               <div className="flex items-center justify-between mb-5">
                 <div>
