@@ -89,8 +89,8 @@ export default function Hero() {
 
     return (
         <section className="relative w-full bg-gray-100">
-            {/* Desktop Carousel - API Images */}
-            <div className="hidden md:block relative w-full" style={{ paddingBottom: '28%' }}>
+            {/* Desktop Carousel - Local Images with Better Visibility */}
+            <div className="hidden md:block relative w-full" style={{ paddingBottom: '42%' }}>
                 {/* Slides */}
                 {slides.map((slide, index) => (
                     <Link
