@@ -1,6 +1,8 @@
 import { MapPin, Heart, Star, User, Building2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function SimpleProductCard({ product }) {
+  const navigate = useNavigate();
   const {
     _id,
     image,
@@ -23,7 +25,7 @@ export default function SimpleProductCard({ product }) {
 
   const handleDetails = (e) => {
     e.stopPropagation();
-    console.log("View details:", _id);
+    navigate(`/product/${_id}`);
   };
 
   const handleWishlist = (e) => {

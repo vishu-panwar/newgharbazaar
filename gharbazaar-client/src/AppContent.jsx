@@ -26,6 +26,7 @@ const Home = lazy(() => import("./pages/Home/Home"));
 const Services = lazy(() => import("./pages/Services"));
 const Marketplace = lazy(() => import("./pages/Marketplace"));
 const ProductsMarketplace = lazy(() => import("./pages/ProductsMarketplace/ProductsMarketplace"));
+const ProductDetails = lazy(() => import("./pages/ProductsMarketplace/ProductDetails"));
 const Pricing = lazy(() => import("./pages/pricing/Pricing"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
 const About = lazy(() => import("./pages/About"));
@@ -240,6 +241,7 @@ useEffect(() => {
           <Route path="/services" element={<Services />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/products-marketplace" element={<ProductsMarketplace />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<About />} />
           <Route path="/refer-and-earn" element={<ReferAndEarn />} />
